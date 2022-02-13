@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 7.1.0" type="incidents">
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-fragment-ktx than 2.4.0 is available: 2.4.1">
+        <fix-replace
+            description="Change to 2.4.1"
+            family="Update versions"
+            oldString="2.4.0"
+            replacement="2.4.1"/>
+        <location
+            file="${:forecast:forecast_presentation*projectDir}/build.gradle.kts"
+            line="7"
+            column="23"
+            startOffset="133"
+            endLine="7"
+            endColumn="72"
+            endOffset="182"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-ui-ktx than 2.4.0 is available: 2.4.1">
+        <fix-replace
+            description="Change to 2.4.1"
+            family="Update versions"
+            oldString="2.4.0"
+            replacement="2.4.1"/>
+        <location
+            file="${:forecast:forecast_presentation*projectDir}/build.gradle.kts"
+            line="8"
+            column="23"
+            startOffset="207"
+            endLine="8"
+            endColumn="66"
+            endOffset="250"/>
+    </incident>
+
+</incidents>

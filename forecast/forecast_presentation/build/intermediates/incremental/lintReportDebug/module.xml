@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_presentation"
+    name=":forecast:forecast_presentation"
+    type="LIBRARY"
+    maven="WeatherForecastApp.forecast:forecast_presentation:"
+    gradle="7.1.0"
+    buildFolder="build"
+    bootClassPath="/Users/sammymutahi/Library/Android/sdk/platforms/android-32/android.jar:/Users/sammymutahi/Library/Android/sdk/build-tools/30.0.3/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-32"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="debug"/>
+</lint-module>
