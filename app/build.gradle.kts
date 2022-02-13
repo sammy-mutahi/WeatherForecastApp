@@ -42,10 +42,11 @@ android {
 dependencies {
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
-    implementation (AndroidX.constraintLayout)
+    implementation(AndroidX.constraintLayout)
+    lintChecks(project(":rules"))
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.4.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.4.0")
+    implementation(Navigation.navigationFragmentUi)
+    implementation(Navigation.navigationUi)
 
     implementation(project(Modules.presentation))
 

@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/forecast/forecast_data" />
             <option value="$PROJECT_DIR$/forecast/forecast_domain" />
             <option value="$PROJECT_DIR$/forecast/forecast_presentation" />
+            <option value="$PROJECT_DIR$/rules" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
