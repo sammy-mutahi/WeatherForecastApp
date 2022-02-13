@@ -1,0 +1,39 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.sammy.forecast_data.test" >
+4
+5    <uses-sdk
+5-->/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest2856677579990004286.xml:5:5-74
+6        android:minSdkVersion="21"
+6-->/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest2856677579990004286.xml:5:15-41
+7        android:targetSdkVersion="32" />
+7-->/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest2856677579990004286.xml:5:42-71
+8
+9    <instrumentation
+9-->/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest2856677579990004286.xml:11:5-15:78
+10        android:name="androidx.test.runner.AndroidJUnitRunner"
+10-->/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest2856677579990004286.xml:11:22-76
+11        android:functionalTest="false"
+11-->/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest2856677579990004286.xml:14:22-52
+12        android:handleProfiling="false"
+12-->/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest2856677579990004286.xml:13:22-53
+13        android:label="Tests for com.sammy.forecast_data.test"
+13-->/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest2856677579990004286.xml:15:22-76
+14        android:targetPackage="com.sammy.forecast_data.test" />
+14-->/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest2856677579990004286.xml:12:22-74
+15
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->[:forecast:forecast_data] /Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-67
+16-->[:forecast:forecast_data] /Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-64
+17
+18    <application
+18-->/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest2856677579990004286.xml:7:5-9:19
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.2.0] /Users/sammymutahi/.gradle/caches/transforms-3/c469fa05b994fce3f58c9ae2be87bd6f/transformed/core-1.2.0/AndroidManifest.xml:24:18-86
+20        android:debuggable="true" >
+21        <uses-library android:name="android.test.runner" />
+21-->/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest2856677579990004286.xml:8:9-60
+21-->/Users/sammymutahi/AndroidStudioProjects/WeatherForecastApp/forecast/forecast_data/build/intermediates/tmp/manifest/androidTest/debug/tempFile1ProcessTestManifest2856677579990004286.xml:8:23-57
+22    </application>
+23
+24</manifest>
