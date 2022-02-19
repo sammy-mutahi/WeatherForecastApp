@@ -1,2 +1,6 @@
 com.sammy.forecast_presentation
+id core_navigation
+id textView
+id weatherForecastFragment
 layout fragment_weather_forecast
+navigation core_navigation

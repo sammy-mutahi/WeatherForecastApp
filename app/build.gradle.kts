@@ -48,6 +48,8 @@ dependencies {
     implementation(Navigation.navigationFragmentUi)
     implementation(Navigation.navigationUi)
 
+    implementation(project(Modules.data))
+    implementation(project(Modules.domain))
     implementation(project(Modules.presentation))
 
     implementation(DaggerHilt.hiltAndroid)
