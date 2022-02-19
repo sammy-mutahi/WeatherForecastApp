@@ -1,0 +1,1 @@
+int layout fragment_weather_forecast 0x0

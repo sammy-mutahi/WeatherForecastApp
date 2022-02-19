@@ -7,7 +7,7 @@ import dagger.hilt.processor.internal.aggregateddeps.AggregatedDeps;
  */
 @AggregatedDeps(
     components = "dagger.hilt.android.components.ViewModelComponent",
-    modules = "com.sammy.forecast_presentation.WeatherForecastViewModel_HiltModules.BindsModule"
+    modules = "com.sammy.forecast_presentation.ui.WeatherForecastViewModel_HiltModules.BindsModule"
 )
-public class _com_sammy_forecast_presentation_WeatherForecastViewModel_HiltModules_BindsModule {
+public class _com_sammy_forecast_presentation_ui_WeatherForecastViewModel_HiltModules_BindsModule {
 }

@@ -1,9 +1,6 @@
-package com.sammy.forecast_presentation;
+package com.sammy.forecast_presentation.ui;
 
 import androidx.lifecycle.ViewModel;
-
-import com.sammy.forecast_presentation.ui.WeatherForecastViewModel;
-
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;

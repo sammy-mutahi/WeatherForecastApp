@@ -1,1 +1,2 @@
 com.sammy.forecast_presentation
+layout fragment_weather_forecast
