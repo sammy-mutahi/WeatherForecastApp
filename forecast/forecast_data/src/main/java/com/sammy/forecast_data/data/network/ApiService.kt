@@ -1,11 +1,11 @@
-package com.sammy.forecast_data.network
+package com.sammy.forecast_data.data.network
 
 import com.sammy.forecast_data.data.dto.CurrentWeatherDto
 import com.sammy.forecast_data.data.dto.ForecastDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-internal interface ApiService {
+interface ApiService {
     @GET("weather")
     suspend fun getCurrentWeather(
         @Query("lat") latitude: String,
