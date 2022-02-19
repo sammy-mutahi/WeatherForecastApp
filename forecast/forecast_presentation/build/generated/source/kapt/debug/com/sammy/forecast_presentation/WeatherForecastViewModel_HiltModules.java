@@ -1,6 +1,9 @@
 package com.sammy.forecast_presentation;
 
 import androidx.lifecycle.ViewModel;
+
+import com.sammy.forecast_presentation.ui.WeatherForecastViewModel;
+
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
@@ -29,7 +32,7 @@ public final class WeatherForecastViewModel_HiltModules {
 
     @Binds
     @IntoMap
-    @StringKey("com.sammy.forecast_presentation.WeatherForecastViewModel")
+    @StringKey("com.sammy.forecast_presentation.ui.WeatherForecastViewModel")
     @HiltViewModelMap
     public abstract ViewModel binds(WeatherForecastViewModel vm);
   }
@@ -44,7 +47,7 @@ public final class WeatherForecastViewModel_HiltModules {
     @IntoSet
     @HiltViewModelMap.KeySet
     public static String provide() {
-      return "com.sammy.forecast_presentation.WeatherForecastViewModel";
+      return "com.sammy.forecast_presentation.ui.WeatherForecastViewModel";
     }
   }
 }

@@ -2,6 +2,8 @@
 package com.sammy.forecast_presentation;
 
 import com.sammy.forecast_domain.use_case.GetUseCases;
+import com.sammy.forecast_presentation.ui.WeatherForecastViewModel;
+
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import javax.inject.Provider;
