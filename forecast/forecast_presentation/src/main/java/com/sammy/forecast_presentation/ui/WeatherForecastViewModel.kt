@@ -1,21 +1,29 @@
 package com.sammy.forecast_presentation.ui
 
+import android.location.Location
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sammy.forecast_domain.use_case.GetUseCases
 import com.sammy.forecast_presentation.data.WeatherForecastUiModel
+import com.sammy.forecast_presentation.utils.LocationUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class WeatherForecastViewModel @Inject constructor(
-    private val useCases: GetUseCases
+    private val useCases: GetUseCases,
+    private val locationUtils: LocationUtils
 ) : ViewModel() {
+
     private val _state = MutableLiveData<WeatherForecastUiModel>()
     val state: LiveData<WeatherForecastUiModel> = _state
+
+    private val _currentLocation = MutableLiveData<Location>()
+    val currentLocation: LiveData<Location> = _currentLocation
 
     fun getCurrentWeather(
         latitude: String,
@@ -68,6 +76,12 @@ class WeatherForecastViewModel @Inject constructor(
                     )
                 }
             }
+    }
+
+    fun getLocation() = viewModelScope.launch {
+        locationUtils.fetchLocationUpdates().collectLatest {
+            _currentLocation.postValue(it)
+        }
     }
 
 }

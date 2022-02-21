@@ -62,6 +62,8 @@ dependencies {
     implementation(Retrofit.okHttpLoggingInterceptor)
     implementation(Retrofit.moshiConverter)
 
+    implementation(Location.location)
+
 
     testImplementation(Testing.junit4)
     testImplementation(Testing.junitAndroidExt)
