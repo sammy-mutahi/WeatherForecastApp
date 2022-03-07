@@ -2,7 +2,6 @@
 package com.sammy.forecast_presentation.ui;
 
 import com.sammy.forecast_domain.use_case.GetUseCases;
-import com.sammy.forecast_presentation.utils.LocationUtils;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import javax.inject.Provider;
@@ -15,26 +14,20 @@ import javax.inject.Provider;
 public final class WeatherForecastViewModel_Factory implements Factory<WeatherForecastViewModel> {
   private final Provider<GetUseCases> useCasesProvider;
 
-  private final Provider<LocationUtils> locationUtilsProvider;
-
-  public WeatherForecastViewModel_Factory(Provider<GetUseCases> useCasesProvider,
-      Provider<LocationUtils> locationUtilsProvider) {
+  public WeatherForecastViewModel_Factory(Provider<GetUseCases> useCasesProvider) {
     this.useCasesProvider = useCasesProvider;
-    this.locationUtilsProvider = locationUtilsProvider;
   }
 
   @Override
   public WeatherForecastViewModel get() {
-    return newInstance(useCasesProvider.get(), locationUtilsProvider.get());
+    return newInstance(useCasesProvider.get());
   }
 
-  public static WeatherForecastViewModel_Factory create(Provider<GetUseCases> useCasesProvider,
-      Provider<LocationUtils> locationUtilsProvider) {
-    return new WeatherForecastViewModel_Factory(useCasesProvider, locationUtilsProvider);
+  public static WeatherForecastViewModel_Factory create(Provider<GetUseCases> useCasesProvider) {
+    return new WeatherForecastViewModel_Factory(useCasesProvider);
   }
 
-  public static WeatherForecastViewModel newInstance(GetUseCases useCases,
-      LocationUtils locationUtils) {
-    return new WeatherForecastViewModel(useCases, locationUtils);
+  public static WeatherForecastViewModel newInstance(GetUseCases useCases) {
+    return new WeatherForecastViewModel(useCases);
   }
 }

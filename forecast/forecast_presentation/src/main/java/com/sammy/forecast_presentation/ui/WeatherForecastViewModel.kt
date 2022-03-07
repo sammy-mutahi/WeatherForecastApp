@@ -7,17 +7,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sammy.forecast_domain.use_case.GetUseCases
 import com.sammy.forecast_presentation.data.WeatherForecastUiModel
-import com.sammy.forecast_presentation.utils.LocationUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class WeatherForecastViewModel @Inject constructor(
-    private val useCases: GetUseCases,
-    private val locationUtils: LocationUtils
+    private val useCases: GetUseCases
 ) : ViewModel() {
 
     private val _state = MutableLiveData<WeatherForecastUiModel>()
@@ -77,13 +73,6 @@ class WeatherForecastViewModel @Inject constructor(
                     )
                 }
             }
-    }
-
-    fun getLocation() = viewModelScope.launch {
-        locationUtils.fetchLocationUpdates().collectLatest {
-            _currentLocation.postValue(it)
-            cancel("current location: $it")
-        }
     }
 
 }

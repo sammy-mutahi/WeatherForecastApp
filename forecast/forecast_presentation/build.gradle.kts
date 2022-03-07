@@ -1,11 +1,10 @@
 apply{
-    from("$rootDir/base-module.gradle")
+    from("$rootDir/compose-module.gradle")
 }
 
 dependencies {
     "implementation"(project(Modules.domain))
-    "implementation"(Navigation.navigationFragmentUi)
-    "implementation"(Navigation.navigationUi)
-    "implementation"(Location.location)
-    "implementation"(Location.easyPermision)
+    "implementation"(project(Modules.coreUi))
+    "implementation"(Coil.coilCompose)
+
 }
