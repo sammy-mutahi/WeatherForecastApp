@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-parcelize'
-apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdk ProjectConfig.compileSdk
@@ -21,9 +20,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-    buildFeatures{
-        viewBinding = true
     }
     compileOptions {
         coreLibraryDesugaringEnabled true
@@ -45,7 +41,17 @@ dependencies {
     testImplementation Testing.truth
     testImplementation Testing.coroutines
     testImplementation Testing.turbine
+    testImplementation Testing.composeUiTest
     testImplementation Testing.mockk
     testImplementation Testing.mockWebServer
 
+    androidTestImplementation Testing.junit4
+    androidTestImplementation Testing.junitAndroidExt
+    androidTestImplementation Testing.truth
+    androidTestImplementation Testing.coroutines
+    androidTestImplementation Testing.turbine
+    androidTestImplementation Testing.composeUiTest
+    androidTestImplementation Testing.mockk
+    androidTestImplementation Testing.mockWebServer
+    androidTestImplementation Testing.hiltTesting
 }
