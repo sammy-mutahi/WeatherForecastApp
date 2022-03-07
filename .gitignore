@@ -17,7 +17,6 @@
 /buildSrc/build
 /buildSrc/build/pluginUnderTestMetadata
 /buildSrc/build/kotlin
-/bu
 /build/.gradle
 /core_ui/.gradle
 /forecast/forecast_presentation/.gradle
