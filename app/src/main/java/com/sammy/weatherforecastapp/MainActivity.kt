@@ -85,7 +85,7 @@ class MainActivity : ComponentActivity() {
                                                         permissionsState.launchMultiplePermissionRequest()
                                                     },
                                                     negativeButton = {
-
+                                                        finish()
                                                     }
                                                 )
                                             }
