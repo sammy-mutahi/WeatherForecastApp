@@ -64,6 +64,7 @@ dependencies {
     implementation(project(Modules.data))
     implementation(project(Modules.domain))
     implementation(project(Modules.presentation))
+    implementation(project(Modules.coreUi))
 
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.appCompat)
