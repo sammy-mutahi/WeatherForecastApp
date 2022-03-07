@@ -9,6 +9,7 @@ import com.sammy.forecast_domain.use_case.GetUseCases
 import com.sammy.forecast_presentation.data.WeatherForecastUiModel
 import com.sammy.forecast_presentation.utils.LocationUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -81,6 +82,7 @@ class WeatherForecastViewModel @Inject constructor(
     fun getLocation() = viewModelScope.launch {
         locationUtils.fetchLocationUpdates().collectLatest {
             _currentLocation.postValue(it)
+            cancel("current location: $it")
         }
     }
 

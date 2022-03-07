@@ -1,7 +1,6 @@
 package com.sammy.forecast_presentation.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +34,12 @@ class WeatherForecastFragment : Fragment(), EasyPermissions.PermissionCallbacks 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        checkLocationPermission()
+        observeViewModel()
+    }
+
+    private fun checkLocationPermission() {
         if (Permissions.hasLocationPermission(requireContext())) {
             viewModel.getLocation()
             observeViewModel()
@@ -44,19 +49,7 @@ class WeatherForecastFragment : Fragment(), EasyPermissions.PermissionCallbacks 
     }
 
     private fun observeViewModel() {
-        viewModel.currentLocation.observe(viewLifecycleOwner) { lastLocation ->
-            Log.e("WeatherForecastFragment", "Current Location: ${lastLocation}")
-            viewModel.getCurrentWeather(
-                latitude = "${lastLocation.latitude}",
-                longitude = "${lastLocation.longitude}",
-                "0bc9bc2a73fd9644f664cf5f5c5be8d7"
-            )
-            viewModel.getWeatherForecast(
-                latitude = "${lastLocation.latitude}",
-                longitude = "${lastLocation.longitude}",
-                "0bc9bc2a73fd9644f664cf5f5c5be8d7"
-            )
-        }
+
     }
 
     override fun onPermissionsDenied(requestCode: Int, perms: List<String>) {
@@ -70,9 +63,7 @@ class WeatherForecastFragment : Fragment(), EasyPermissions.PermissionCallbacks 
     override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {
         when (requestCode) {
             Constants.LOCATION_PERMISSION_REQUEST_CODE -> {
-                Log.e("WeatherForecastFragment", "****GRANTED*****")
                 viewModel.getLocation()
-                observeViewModel()
             }
         }
     }
