@@ -9,6 +9,16 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
+/core_ui/build
+/forecast/forecast_data/build
+/forecast/forecast_domain/build
+/forecast/forecast_presentation/build
+/core_ui/.gradle
+/forecast/forecast_presentation/.gradle
+/forecast/forecast_domain/.gradle
+/forecast/forecast_data/.gradle
+/rules/build
+/rules/.gradle
 /captures
 .externalNativeBuild
 .cxx
