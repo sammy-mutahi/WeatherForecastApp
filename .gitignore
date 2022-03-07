@@ -15,6 +15,7 @@
 /forecast/forecast_domain/build
 /forecast/forecast_presentation/build
 /buildSrc/build
+/build/.gradle
 /core_ui/.gradle
 /forecast/forecast_presentation/.gradle
 /forecast/forecast_domain/.gradle
