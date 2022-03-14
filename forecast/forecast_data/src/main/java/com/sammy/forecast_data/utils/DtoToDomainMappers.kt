@@ -20,6 +20,7 @@ fun CurrentWeatherDto.toCurrentWeather(): CurrentWeather {
         icon = this.weather[0].icon,
         "${this.main.temp}",
         "${this.main.tempMax}",
-        "${this.main.tempMin}"
+        "${this.main.tempMin}",
+        this.weather[0].description
     )
 }
