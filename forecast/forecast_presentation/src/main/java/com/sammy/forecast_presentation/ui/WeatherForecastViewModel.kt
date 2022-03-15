@@ -11,6 +11,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.sammy.forecast_domain.use_case.GetUseCases
 import com.sammy.forecast_presentation.data.WeatherForecastUiState
+import com.sammy.forecast_presentation.utils.ViewBackgroundColorState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -26,7 +27,12 @@ class WeatherForecastViewModel @Inject constructor(
         private set
 
     init {
-        fetchCurrentLocation()
+        //  fetchCurrentLocation()
+        getCurrentWeather(
+            "-0.303099",
+            "36.080025",
+            "0bc9bc2a73fd9644f664cf5f5c5be8d7"
+        )
     }
 
 
@@ -42,9 +48,18 @@ class WeatherForecastViewModel @Inject constructor(
             latitude, longitude, apiKey
         )
             .onSuccess {
+                val backgroundState = when {
+
+                    it.description.contains("rain", true) -> ViewBackgroundColorState.RAINY
+                    it.description.contains("cloud", true) -> ViewBackgroundColorState.CLOUDY
+                    else -> ViewBackgroundColorState.SUNNY
+
+                }
+
                 state = state.copy(
                     isLoading = false,
-                    currentWeather = it
+                    currentWeather = it,
+                    viewBackgroundColorState = backgroundState
                 )
             }
             .onFailure {
