@@ -1,44 +1,42 @@
 package com.sammy.forecast_data.data.dto
 
 import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
 data class Daily(
-    @Json(name = "clouds")
+    @field:Json(name = "clouds")
     val clouds: Int,
-    @Json(name = "dew_point")
+    @field:Json(name = "dew_point")
     val dewPoint: Double,
-    @Json(name = "dt")
+    @field:Json(name = "dt")
     val dt: Int,
-    @Json(name = "feels_like")
+    @field:Json(name = "feels_like")
     val feelsLike: FeelsLike,
-    @Json(name = "humidity")
+    @field:Json(name = "humidity")
     val humidity: Int,
-    @Json(name = "moon_phase")
+    @field:Json(name = "moon_phase")
     val moonPhase: Double,
-    @Json(name = "moonrise")
+    @field:Json(name = "moonrise")
     val moonrise: Int,
-    @Json(name = "moonset")
+    @field:Json(name = "moonset")
     val moonset: Int,
-    @Json(name = "pop")
+    @field:Json(name = "pop")
     val pop: Double,
-    @Json(name = "pressure")
+    @field:Json(name = "pressure")
     val pressure: Int,
-    @Json(name = "sunrise")
+    @field:Json(name = "sunrise")
     val sunrise: Int,
-    @Json(name = "sunset")
+    @field:Json(name = "sunset")
     val sunset: Int,
-    @Json(name = "temp")
+    @field:Json(name = "temp")
     val temp: Temp,
-    @Json(name = "uvi")
+    @field:Json(name = "uvi")
     val uvi: Double,
-    @Json(name = "weather")
+    @field:Json(name = "weather")
     val weather: List<Weather>,
-    @Json(name = "wind_deg")
+    @field:Json(name = "wind_deg")
     val windDeg: Int,
-    @Json(name = "wind_gust")
+    @field:Json(name = "wind_gust")
     val windGust: Double,
-    @Json(name = "wind_speed")
+    @field:Json(name = "wind_speed")
     val windSpeed: Double
 )

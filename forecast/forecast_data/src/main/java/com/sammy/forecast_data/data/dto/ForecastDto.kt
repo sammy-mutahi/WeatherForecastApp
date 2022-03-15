@@ -1,18 +1,17 @@
 package com.sammy.forecast_data.data.dto
 
 import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
+
 data class ForecastDto(
-    @Json(name = "daily")
+    @field:Json(name = "daily")
     val daily: List<Daily>,
-    @Json(name = "lat")
+    @field:Json(name = "lat")
     val lat: Double,
-    @Json(name = "lon")
+    @field:Json(name = "lon")
     val lon: Double,
-    @Json(name = "timezone")
+    @field:Json(name = "timezone")
     val timezone: String,
-    @Json(name = "timezone_offset")
+    @field:Json(name = "timezone_offset")
     val timezoneOffset: Int
 )

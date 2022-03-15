@@ -1,16 +1,14 @@
 package com.sammy.forecast_data.data.dto
 
 import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
 data class FeelsLike(
-    @Json(name = "day")
+    @field:Json(name = "day")
     val day: Double,
-    @Json(name = "eve")
+    @field:Json(name = "eve")
     val eve: Double,
-    @Json(name = "morn")
+    @field:Json(name = "morn")
     val morn: Double,
-    @Json(name = "night")
+    @field:Json(name = "night")
     val night: Double
 )

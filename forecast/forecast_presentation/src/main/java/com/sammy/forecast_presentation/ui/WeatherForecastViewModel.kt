@@ -1,51 +1,72 @@
 package com.sammy.forecast_presentation.ui
 
+import android.annotation.SuppressLint
+import android.location.Geocoder
 import android.location.Location
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.android.gms.location.FusedLocationProviderClient
 import com.sammy.forecast_domain.use_case.GetUseCases
-import com.sammy.forecast_presentation.data.WeatherForecastUiModel
+import com.sammy.forecast_presentation.data.WeatherForecastUiState
+import com.sammy.forecast_presentation.utils.ViewBackgroundColorState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class WeatherForecastViewModel @Inject constructor(
-    private val useCases: GetUseCases
+    private val useCases: GetUseCases,
+    private val fusedlocation: FusedLocationProviderClient,
+    private val geocoder: Geocoder
 ) : ViewModel() {
 
-    private val _state = MutableLiveData<WeatherForecastUiModel>()
-    val state: LiveData<WeatherForecastUiModel> = _state
+    var state by mutableStateOf(WeatherForecastUiState())
+        private set
 
-    private val _currentLocation = MutableLiveData<Location>()
-    val currentLocation: LiveData<Location> = _currentLocation
+    init {
+        //  fetchCurrentLocation()
+        getCurrentWeather(
+            "-0.303099",
+            "36.080025",
+            "0bc9bc2a73fd9644f664cf5f5c5be8d7"
+        )
+    }
+
 
     fun getCurrentWeather(
         latitude: String,
         longitude: String,
         apiKey: String
     ) = viewModelScope.launch {
-        _state.value = state.value?.copy(
+        state = state.copy(
             isLoading = true
         )
         useCases.currentWeather.invoke(
             latitude, longitude, apiKey
         )
             .onSuccess {
-                _state.value = _state.value?.copy(
+                val backgroundState = when {
+
+                    it.description.contains("rain", true) -> ViewBackgroundColorState.RAINY
+                    it.description.contains("cloud", true) -> ViewBackgroundColorState.CLOUDY
+                    else -> ViewBackgroundColorState.SUNNY
+
+                }
+
+                state = state.copy(
                     isLoading = false,
-                    currentWeather = it
+                    currentWeather = it,
+                    viewBackgroundColorState = backgroundState
                 )
             }
             .onFailure {
-                _state.value = it.message?.let { message ->
-                    _state.value?.copy(
-                        isLoading = false,
-                        error = message
-                    )
-                }
+                state = state.copy(
+                    isLoading = false,
+                    error = it.localizedMessage
+                )
             }
     }
 
@@ -60,19 +81,42 @@ class WeatherForecastViewModel @Inject constructor(
             apiKey
         )
             .onSuccess {
-                _state.value = _state.value?.copy(
+                state = state.copy(
                     isLoading = false,
                     weatherForecast = it
                 )
             }
             .onFailure {
-                _state.value = it.message?.let { message ->
-                    _state.value?.copy(
-                        isLoading = false,
-                        error = message
-                    )
-                }
+                state = state.copy(
+                    isLoading = false,
+                    error = it.localizedMessage
+                )
             }
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun fetchCurrentLocation() {
+        fusedlocation.lastLocation.addOnSuccessListener {
+            it?.let {
+                setlocation(it)
+            }
+        }
+    }
+
+    private fun setlocation(lastLocation: Location) {
+        try {
+            val addresses =
+                geocoder.getFromLocation(lastLocation.latitude, lastLocation.longitude, 1)
+            val address = addresses[0]
+            state = state.copy(
+                lastLocation = lastLocation
+            )
+            state = state.copy(
+                locationName = address.adminArea
+            )
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
 }

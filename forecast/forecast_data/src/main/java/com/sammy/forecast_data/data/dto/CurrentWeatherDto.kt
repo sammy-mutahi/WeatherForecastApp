@@ -2,34 +2,32 @@ package com.sammy.forecast_data.data.dto
 
 
 import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
 data class CurrentWeatherDto(
-    @Json(name = "base")
+    @field:Json(name = "base")
     val base: String,
-    @Json(name = "clouds")
+    @field:Json(name = "clouds")
     val clouds: Clouds,
-    @Json(name = "cod")
+    @field:Json(name = "cod")
     val cod: Int,
-    @Json(name = "coord")
+    @field:Json(name = "coord")
     val coord: Coord,
-    @Json(name = "dt")
+    @field:Json(name = "dt")
     val dt: Int,
-    @Json(name = "id")
+    @field:Json(name = "id")
     val id: Int,
-    @Json(name = "main")
+    @field:Json(name = "main")
     val main: Main,
-    @Json(name = "name")
+    @field:Json(name = "name")
     val name: String,
-    @Json(name = "sys")
+    @field:Json(name = "sys")
     val sys: Sys,
-    @Json(name = "timezone")
+    @field:Json(name = "timezone")
     val timezone: Int,
-    @Json(name = "visibility")
+    @field:Json(name = "visibility")
     val visibility: Int,
-    @Json(name = "weather")
+    @field:Json(name = "weather")
     val weather: List<Weather>,
-    @Json(name = "wind")
+    @field:Json(name = "wind")
     val wind: Wind
 )

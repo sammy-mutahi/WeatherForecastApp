@@ -75,7 +75,6 @@ class MainActivity : ComponentActivity() {
                                         when {
                                             perm.hasPermission -> {
                                                 HomeScreen(
-                                                    scaffoldState = scaffoldState
                                                 )
                                             }
                                             perm.shouldShowRationale -> {
