@@ -33,6 +33,11 @@ class WeatherForecastViewModel @Inject constructor(
             "36.080025",
             "0bc9bc2a73fd9644f664cf5f5c5be8d7"
         )
+        getWeatherForecast(
+            "-0.303099",
+            "36.080025",
+            "0bc9bc2a73fd9644f664cf5f5c5be8d7"
+        )
     }
 
 

@@ -8,7 +8,8 @@ import com.sammy.forecast_domain.model.WeatherForecast
 
 fun Daily.toWeatherForecast(): WeatherForecast {
     return WeatherForecast(
-        "${this.temp}",
+        this.weather[0].id,
+        "${this.temp.day.toInt()}",
         Converters.convertToDay(this.dt.toLong())
     )
 
