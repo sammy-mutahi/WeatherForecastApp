@@ -39,7 +39,7 @@ fun WeekelyForecast(
             .fillMaxWidth()
             .background(backgroundColor)
             .padding(16.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.SpaceAround,
     ) {
         Text(text = forecast.day, style = MaterialTheme.typography.body2, color = Color.White)
         Image(painter = painterResource(id = icon), contentDescription = "")

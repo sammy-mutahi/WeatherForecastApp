@@ -60,7 +60,7 @@ fun CurrentWeatherheader(
                     Text(text = "${it.temp} ℃", style = MaterialTheme.typography.h1, color = color)
                     Text(
                         text = it.description,
-                        style = MaterialTheme.typography.subtitle1,
+                        style = MaterialTheme.typography.caption,
                         color = color
                     )
                 }
