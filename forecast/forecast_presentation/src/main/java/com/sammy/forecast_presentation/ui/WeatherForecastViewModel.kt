@@ -27,17 +27,7 @@ class WeatherForecastViewModel @Inject constructor(
         private set
 
     init {
-        //  fetchCurrentLocation()
-        getCurrentWeather(
-            "-0.303099",
-            "36.080025",
-            "0bc9bc2a73fd9644f664cf5f5c5be8d7"
-        )
-        getWeatherForecast(
-            "-0.303099",
-            "36.080025",
-            "0bc9bc2a73fd9644f664cf5f5c5be8d7"
-        )
+          fetchCurrentLocation()
     }
 
 
@@ -101,14 +91,22 @@ class WeatherForecastViewModel @Inject constructor(
 
     @SuppressLint("MissingPermission")
     private fun fetchCurrentLocation() {
-        fusedlocation.lastLocation.addOnSuccessListener {
-            it?.let {
-                setlocation(it)
+        try {
+            val locationResult = fusedlocation.lastLocation
+            locationResult.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val lastKnownLocaton = task.result
+                    lastKnownLocaton?.let {
+                        getLocationName(it)
+                    }
+                }
             }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
-    private fun setlocation(lastLocation: Location) {
+    private fun getLocationName(lastLocation: Location) {
         try {
             val addresses =
                 geocoder.getFromLocation(lastLocation.latitude, lastLocation.longitude, 1)

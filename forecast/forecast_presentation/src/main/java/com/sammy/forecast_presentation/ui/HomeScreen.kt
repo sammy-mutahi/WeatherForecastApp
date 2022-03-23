@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -20,6 +21,20 @@ fun HomeScreen(
     val spacing = LocalSpacing.current
     val state = viewModel.state
     val context = LocalContext.current
+
+    LaunchedEffect(key1 = state) {
+        viewModel.getCurrentWeather(
+            "${state.lastLocation?.latitude}",
+            "${state.lastLocation?.longitude}",
+            "0bc9bc2a73fd9644f664cf5f5c5be8d7"
+        )
+        viewModel.getWeatherForecast(
+            "${state.lastLocation?.latitude}",
+            "${state.lastLocation?.longitude}",
+            "0bc9bc2a73fd9644f664cf5f5c5be8d7"
+        )
+    }
+
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
