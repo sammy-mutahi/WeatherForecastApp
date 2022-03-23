@@ -77,7 +77,7 @@ dependencies {
     implementation(Retrofit.retrofit)
     implementation(Retrofit.okHttpLoggingInterceptor)
     implementation(Retrofit.moshiConverter)
-    implementation(Location.locationPermission)
+    implementation(Accompanist.accompanistPermission)
     implementation(Location.location)
 
     kapt(Room.roomCompiler)

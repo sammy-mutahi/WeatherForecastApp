@@ -7,4 +7,5 @@ dependencies {
     "implementation"(project(Modules.coreUi))
     "implementation"(Coil.coilCompose)
     "implementation"(Location.location)
+    "implementation"(Accompanist.accompanistController)
 }

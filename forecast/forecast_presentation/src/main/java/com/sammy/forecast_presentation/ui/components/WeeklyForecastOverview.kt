@@ -1,7 +1,6 @@
 package com.sammy.forecast_presentation.ui.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.sammy.core_ui.LocalColors
 import com.sammy.core_ui.LocalSpacing
 import com.sammy.forecast_domain.model.WeatherForecast
 import com.sammy.forecast_presentation.R
@@ -25,19 +23,12 @@ fun WeekelyForecast(
     forecast: WeatherForecast,
     modifier: Modifier = Modifier
 ) {
-    val colors = LocalColors.current
     val spacing = LocalSpacing.current
     val forecastId = forecast.id.toString()
     val icon: Int = iconId(forecastId)
-    val backgroundColor = when (colorState) {
-        ViewBackgroundColorState.CLOUDY -> colors.cloudyBackgroundColor
-        ViewBackgroundColorState.RAINY -> colors.rainyBackgroundColor
-        else -> colors.sunnyBackgroundColor
-    }
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(backgroundColor)
             .padding(16.dp),
         horizontalArrangement = Arrangement.SpaceAround,
     ) {

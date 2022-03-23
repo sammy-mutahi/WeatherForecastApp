@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.sammy.core_ui.LocalSpacing
 import com.sammy.forecast_presentation.R
@@ -50,13 +49,14 @@ fun CurrentWeatherheader(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Text(text = state.locationName, style = TextStyle(color = Color.Black))
+                val color = when (state.viewBackgroundColorState) {
+                    ViewBackgroundColorState.RAINY -> Color.White
+                    ViewBackgroundColorState.CLOUDY -> Color.White
+                    else -> Color.Black
+                }
+                Text(text = state.locationName, style = MaterialTheme.typography.h1, color = color)
                 state.currentWeather?.let {
-                    val color = when (state.viewBackgroundColorState) {
-                        ViewBackgroundColorState.RAINY -> Color.White
-                        ViewBackgroundColorState.CLOUDY -> Color.White
-                        else -> Color.Black
-                    }
+
                     Text(text = "${it.temp} ℃", style = MaterialTheme.typography.h1, color = color)
                     Text(
                         text = it.description,
