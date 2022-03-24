@@ -4,10 +4,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Divider
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -60,7 +62,9 @@ fun HomeScreen(
         ) {
             item {
                 CurrentWeatherheader(state = state)
+                Divider(color = Color.White)
                 TemperatureHeader(state = state)
+                Divider(color = Color.White)
             }
             items(state.weatherForecast) { forecast ->
                 WeekelyForecast(state.viewBackgroundColorState, forecast)

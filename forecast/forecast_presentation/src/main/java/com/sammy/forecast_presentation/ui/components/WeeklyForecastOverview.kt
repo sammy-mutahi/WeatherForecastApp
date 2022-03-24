@@ -1,10 +1,7 @@
 package com.sammy.forecast_presentation.ui.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -35,7 +32,12 @@ fun WeekelyForecast(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(text = forecast.day, style = MaterialTheme.typography.body2, color = Color.White)
+        Text(
+            text = forecast.day,
+            style = MaterialTheme.typography.body2,
+            color = Color.White,
+            modifier = Modifier.width(74.dp)
+        )
         Image(painter = painterResource(id = icon), contentDescription = "")
         Text(
             text = "${forecast.temp} ℃",
