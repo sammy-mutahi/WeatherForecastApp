@@ -13,6 +13,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.sammy.core_ui.LocalColors
 import com.sammy.core_ui.LocalSpacing
+import com.sammy.forecast_presentation.BuildConfig
 import com.sammy.forecast_presentation.ui.components.CurrentWeatherheader
 import com.sammy.forecast_presentation.ui.components.TemperatureHeader
 import com.sammy.forecast_presentation.ui.components.WeekelyForecast
@@ -42,12 +43,12 @@ fun HomeScreen(
         viewModel.getCurrentWeather(
             "${state.lastLocation?.latitude}",
             "${state.lastLocation?.longitude}",
-            "0bc9bc2a73fd9644f664cf5f5c5be8d7"
+            BuildConfig.OPEN_WEATHER_API_KEY
         )
         viewModel.getWeatherForecast(
             "${state.lastLocation?.latitude}",
             "${state.lastLocation?.longitude}",
-            "0bc9bc2a73fd9644f664cf5f5c5be8d7"
+            BuildConfig.OPEN_WEATHER_API_KEY
         )
     }
 
@@ -66,4 +67,5 @@ fun HomeScreen(
             }
         }
     }
+
 }
