@@ -52,7 +52,7 @@ fun HomeScreen(
         )
     }
 
-    Surface(color = surfaceColor) {
+    Surface(modifier = Modifier.fillMaxSize(), color = surfaceColor) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
