@@ -26,11 +26,12 @@ fun WeekelyForecast(
     val spacing = LocalSpacing.current
     val forecastId = forecast.id.toString()
     val icon: Int = iconId(forecastId)
+
     Row(
         modifier = modifier
             .fillMaxWidth()
             .padding(16.dp),
-        horizontalArrangement = Arrangement.SpaceAround,
+        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
         Text(text = forecast.day, style = MaterialTheme.typography.body2, color = Color.White)
         Image(painter = painterResource(id = icon), contentDescription = "")

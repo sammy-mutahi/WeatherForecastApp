@@ -16,8 +16,9 @@ fun TemperatureHeader(
 ) {
     Row(
         modifier = modifier
-            .fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceEvenly,
+            .fillMaxWidth()
+            .padding(16.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
 
         Column {

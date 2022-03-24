@@ -49,11 +49,7 @@ fun CurrentWeatherheader(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                val color = when (state.viewBackgroundColorState) {
-                    ViewBackgroundColorState.RAINY -> Color.White
-                    ViewBackgroundColorState.CLOUDY -> Color.White
-                    else -> Color.Black
-                }
+                val color = Color.White
                 Text(text = state.locationName, style = MaterialTheme.typography.h1, color = color)
                 state.currentWeather?.let {
 

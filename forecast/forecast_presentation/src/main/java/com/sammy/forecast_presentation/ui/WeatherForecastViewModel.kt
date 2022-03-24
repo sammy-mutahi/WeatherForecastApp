@@ -3,6 +3,7 @@ package com.sammy.forecast_presentation.ui
 import android.annotation.SuppressLint
 import android.location.Geocoder
 import android.location.Location
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -97,6 +98,7 @@ class WeatherForecastViewModel @Inject constructor(
                 if (task.isSuccessful) {
                     val lastKnownLocaton = task.result
                     lastKnownLocaton?.let {
+                        Log.e("ViewModel", "Last Known Location: $it")
                         getLocationName(it)
                     }
                 }
