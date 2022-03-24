@@ -1,4 +1,4 @@
-package com.payoneer.forecast_data.network
+package com.sammy.forecast_data.network
 
 val validCurrentWeatherResponse = """
     {"coord":{"lon":36.08,"lat":-0.3031},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":300.31,"feels_like":299.52,"temp_min":300.31,"temp_max":300.31,"pressure":1007,"humidity":26,"sea_level":1007,"grnd_level":823},"visibility":10000,"wind":{"speed":4.36,"deg":12,"gust":3.47},"clouds":{"all":79},"dt":1644584094,"sys":{"country":"KE","sunrise":1644551176,"sunset":1644594823},"timezone":10800,"id":189773,"name":"Lake View Estate","cod":200}
